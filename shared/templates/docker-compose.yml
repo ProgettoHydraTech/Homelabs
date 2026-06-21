@@ -1,0 +1,20 @@
+# Template base Docker Compose
+# Copia questo file nella cartella del servizio e adattalo
+
+services:
+  app:
+    image: image-name:latest
+    container_name: app
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Rome
+    volumes:
+      - ./data:/data
+    ports:
+      - "8080:8080"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
