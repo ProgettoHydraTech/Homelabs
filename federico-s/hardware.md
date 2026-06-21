@@ -1,6 +1,20 @@
 # Hardware — Federico S.
 
 > 🛒 I link qui sotto sono **link affiliati Amazon**. Il prezzo per te non cambia, ma una piccola percentuale va a noi — grazie se li usi!
+>
+> <details><summary>Commissioni Amazon per categoria</summary>
+>
+> | Categoria | Commissione |
+> |-----------|-------------|
+> | Abbigliamento, Scarpe, Borse, Orologi, Lusso | 6% |
+> | Libri, Casa, Fai da te, Auto e Moto, Musica, Mobili, Cucina | 5% |
+> | Bellezza, Sport & Fitness, Cura personale | 4% |
+> | Tutte le altre categorie | 3% |
+> | Elettronica Mobile, Fire TV, Grandi Elettrodomestici | 2,5% |
+> | Alimentari, Console, Videogiochi | 1% |
+> | Gift Card, Kindle Unlimited, Vino, categorie speciali | 0% |
+>
+> </details>
 
 ---
 
