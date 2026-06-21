@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: vrm-mediamtx
+    restart: unless-stopped
+    ports:
+      - "8554:8554"
+      - "8888:8888"
+      - "8889:8889"
+    environment:
+      MTX_LOGLEVEL: info
+      MTX_LOGDESTINATIONS: stdout
+      MTX_RTSPADDRESS: :8554
+      MTX_PATHS_VICTRON_READANYUSER: "true"
+      MTX_PATHS_VICTRON_PUBLISHANYUSER: "true"
+
+  screenshotter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vrm-screenshotter
+    restart: unless-stopped
+    depends_on:
+      - mediamtx
+    environment:
+      RTSP_URL:  "rtsp://mediamtx:8554/victron"
+      WIDTH:     "1280"
+      HEIGHT:    "720"
+      VRM_TOKEN: ${VRM_TOKEN}
+      FPS:       ${FPS:-5}
+    shm_size: "256mb"
+    volumes:
+      - ${STORAGE_PATH}/media:/media
+
+  onvif:
+    build:
+      context: .
+      dockerfile: Dockerfile.onvif
+    container_name: vrm-onvif
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      ONVIF_SERVER_IP: ${HOST_IP}
+      RTSP_SERVER_IP:  ${HOST_IP}
+      RTSP_PORT:       "8554"
+      RTSP_PATH:       "victron"
+      ONVIF_PORT:      "31472"
+      DEVICE_NAME:     "Victron VRM"
+      FPS:             ${FPS:-25}
+    depends_on:
+      - mediamtx

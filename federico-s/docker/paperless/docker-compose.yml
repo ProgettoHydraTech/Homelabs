@@ -1,0 +1,32 @@
+services:
+  broker:
+    image: redis:7
+    restart: unless-stopped
+    volumes:
+      - ${STORAGE_PATH}/paperless/redis:/data
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    volumes:
+      - ${STORAGE_PATH}/paperless/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${PAPERLESS_DBNAME}
+      POSTGRES_USER: ${PAPERLESS_DBUSER}
+      POSTGRES_PASSWORD: ${PAPERLESS_DBPASS}
+
+  webserver:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+      - broker
+    ports:
+      - "32768:8000"
+    volumes:
+      - ${STORAGE_PATH}/paperless/data:/usr/src/paperless/data
+      - ${STORAGE_PATH}/paperless/media:/usr/src/paperless/media
+      - ${STORAGE_PATH}/paperless/consume:/usr/src/paperless/consume
+      - ${STORAGE_PATH}/paperless/export:/usr/src/paperless/export
+    env_file:
+      - stack.env
