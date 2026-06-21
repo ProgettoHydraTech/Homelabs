@@ -18,7 +18,7 @@
 | Componente | Dettagli | Link |
 |------------|----------|------|
 | HDD NAS | Seagate IronWolf Pro 10TB 3.5" — ST10000NE0004 (rigenerati eBay) — ne ho 6 | — |
-| HDD (x4) | — | [Amazon](https://amzn.to/3SpoJBK) |
+| HDD NAS (x4) | Seagate IronWolf 3TB 3.5" SATA 6Gb/s — ST3000VN007 | [Amazon](https://amzn.to/3SpoJBK) |
 | Bay per HDD | x2 | [Amazon](https://amzn.to/4aLeKgl) |
 
 ### Controller HDD
