@@ -21,3 +21,5 @@ Siamo Federico S. e Federico C., due appassionati di self-hosting, Linux e open 
 ---
 
 *Ispirato da [TechHutTV/homelab](https://github.com/TechHutTV/homelab)*
+
+<details><summary><sub>Note</sub></summary><sub>Repo organizzato con l'aiuto dell'intelligenza artificiale.</sub></details>
